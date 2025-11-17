@@ -37,12 +37,16 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   color: transparent;
+  background: linear-gradient(to right, #1173D4, #33CC73);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
   display: inline-block;
 }
 
 .title-male {
-  background: linear-gradient(to right, #1173D4, #33CC73);
+  background: linear-gradient(to right, #3373D2, #6F95C7, #7BB5F5, #5EA7EF);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -166,7 +170,7 @@ body {
 }
 
 .card-vertical {
-  height: 500px;
+  height: 450px;
   width: 250px;
 }
 
@@ -197,6 +201,27 @@ body {
 .alert-yellow {
   background: #fffbeb;
   color: #92400e;
+}
+.alert .alert-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: left; /* garante alinhamento do texto */
+}
+.alert .alert-header img {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+.alert .alert-header strong {
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+}
+.alert .alert-body {
+  text-align: center;
+  margin-top: 0.5rem;
 }
 .alert strong {
   display: block;
@@ -264,7 +289,7 @@ header .banner .image {
   flex: 1;
   min-width: 300px;
   height: 380px;
-  background: #eee;
+  background: transparent;
   border-radius: 20px;
 }
 
@@ -280,6 +305,9 @@ header .banner .image {
 }
 .section.pink {
   background: linear-gradient(to bottom, #fdf7fb, #fde8f5);
+}
+.section.blue {
+  background: linear-gradient(to bottom, #F8F9FA, #b5d7f9);
 }
 .section.white {
   background: white;

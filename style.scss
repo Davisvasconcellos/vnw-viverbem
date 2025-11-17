@@ -1,18 +1,19 @@
 /* ========================================
    1. ELEMENTOS COMUNS
    ======================================== */
-   // FONTES GOOGLE
+    // FONTES GOOGLE
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
 
-
-
+    // DEFINIÇÃO DE VARIÁVEIS
 $primary: #1173D4;
 $secondary: #33CC73;
 $gradient: linear-gradient(to right, #4247A2, #52B095);
+$title-gradient-male: linear-gradient(to right, #3373D2, #6F95C7,#7BB5F5,#5EA7EF);
 $title-gradient-female: linear-gradient(to right, #F9016F8A, #9308859E,#D038AAC0,#851C87);
 $title-gradient: linear-gradient(to right, $primary, $secondary);
 
-* {
+    
+* { //reset
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,33 +40,36 @@ body {
 }
 
 .text-center { text-align: center; }
+
+// Títulos Degradê
+// obs: só consegui fazer o degradê com classes separadas
 .title {
     font-size: 2.5rem;
     font-weight: 700;
     color: transparent;
+    background: $title-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
     display: inline-block;
 }
 
 .title-male {
-
-    background: $title-gradient;
+    background: $title-gradient-male;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
-
 .title-female{
-
     background: $title-gradient-female;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
 }
-
 
 .subtitle {
     font-size: 1.1rem;
@@ -78,6 +82,8 @@ body {
 /* ========================================
    2. BOTÕES
    ======================================== */
+
+   // obs: descobrir pq o botão 2 não anima para cima como o primeiro
 .btn {
     padding: 14px 28px;
     border-radius: 12px;
@@ -170,7 +176,6 @@ body {
 
     }
 
-
     ul {
         text-align: left;
         font-size: 0.9rem;
@@ -192,10 +197,8 @@ body {
     }
 }
 
-
-
 .card-vertical{
-    height: 500px;
+    height: 450px;
     width: 250px;
 }
 
@@ -217,11 +220,38 @@ body {
     &-green { background: #f0fdf4; color: #166534; }
     &-yellow { background: #fffbeb; color: #92400e; }
 
+    .alert-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-align: left;     /* garante alinhamento do texto */
+    }
+
+    .alert-header img {
+        width: 30px;
+        height: 30px;
+        display: block;
+    }
+
+    .alert-header strong {
+    line-height: 1;        // evita o texto “subir”
+    display: flex;
+    align-items: center;   // centraliza verticalmente
+    padding-top: 5px; // hack para centralizar, não consegui pelo align-items
+    }
+
+    .alert-body {
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+
     strong {
         display: block;
         margin-bottom: 0.5rem;
         font-size: 1.05rem;
     }
+
 }
 
 /* ========================================
@@ -286,11 +316,13 @@ header {
             }
         }
 
+        // classe da div hack para manter o texto a esquerda sem sobrepor a imagem
         .image {
             flex: 1;
             min-width: 300px;
             height: 380px;
-            background: #eee;
+            // background: #eee;
+            background: transparent;
             border-radius: 20px;
         }
     }
@@ -305,6 +337,7 @@ header {
 
     &.light { background: #f8f9fa; }
     &.pink { background: linear-gradient(to bottom, #fdf7fb, #fde8f5); }
+    &.blue { background: linear-gradient(to bottom, #F8F9FA, #b5d7f9); }
     &.white { background: white; }
 
     .cards-wrapper {
