@@ -7,6 +7,7 @@
     // DEFINIÇÃO DE VARIÁVEIS
 $primary: #1173D4;
 $secondary: #33CC73;
+$footer-bg: #0f172a;
 $gradient: linear-gradient(to right, #4247A2, #52B095);
 $title-gradient-male: linear-gradient(to right, #3373D2, #6F95C7,#7BB5F5,#5EA7EF);
 $title-gradient-female: linear-gradient(to right, #F9016F8A, #9308859E,#D038AAC0,#851C87);
@@ -17,6 +18,10 @@ $title-gradient: linear-gradient(to right, $primary, $secondary);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html { // suavisar o link da ancora do menu
+    scroll-behavior: smooth;
 }
 
 body {
@@ -255,7 +260,7 @@ body {
 }
 
 /* ========================================
-   5. HEADER + BANNER
+   5. HEADER + BANNER + NAVBAR
    ======================================== */
 header {
     min-height: 90vh;
@@ -275,19 +280,40 @@ header {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 3rem;
+        gap: 1.5rem;
+        //para fixar a barra no topo, me incomodou um pouco quando descia a página
+        // depois implemento em outa branch pois precisa ajustar o layout
+        // position: sticky;
+        // top: 20px;           /* distância do topo quando fixar */
+        // z-index: 1000;
 
         .logo {
             max-width: 140px;
+            flex-shrink: 0;
         }
 
-        nav a {
-            color: white;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 500;
-            margin-left: 2rem;
-            transition: opacity 0.3s;
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: nowrap; /* nunca quebra */
+            min-width: 0; /* permite encolher */
 
-            &:hover { opacity: 0.8; }
+            a {
+                color: white;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 500;
+                font-size: 1rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: clip;
+                max-width: 180px; /* corta o texto se for muito grande */
+                transition: opacity 0.3s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
         }
     }
 
@@ -346,10 +372,200 @@ header {
     }
 }
 
+
+
+/* ========================================
+   7. FOOTER
+   ======================================== */
+footer {
+    background: $footer-bg;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 4rem 0 2rem;
+}
+
+.footer-brand {
+    flex: 1;
+    min-width: 280px;
+
+    .footer-logo {
+        max-width: 160px;
+        margin-bottom: 1rem;
+    }
+
+    .footer-slogan {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: white;
+        margin: 1rem 0;
+        font-style: italic;
+    }
+
+    .footer-desc {
+        color: #94a3b8;
+        line-height: 1.6;
+    }
+}
+
+.footer-links,
+.footer-contact {
+    flex: 1;
+    min-width: 220px;
+
+    h3 {
+        color: white;
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: $secondary;
+            margin-top: 0.5rem;
+            border-radius: 2px;
+        }
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 0.7rem;
+
+            a {
+                color: #cbd5e1;
+                text-decoration: none;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 0.6rem;
+        color: #cbd5e1;
+    }
+
+    strong {
+        color: white;
+    }
+
+    .emergency {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #94a3b8;
+        line-height: 1.5;
+    }
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links h3::after,
+    .footer-contact h3::after {
+        margin: 0.5rem auto;
+    }
+}
+
+
+
 /* Responsividade */
+
 @media (max-width: 768px) {
     .title { font-size: 2rem; }
+
+    /* NAV-BAR MOBILE → LOGO | PREVENÇÃO MASC | PREVENÇÃO FEM */
+    .nav-bar {
+        padding: 0;
+        gap: 1rem;
+        justify-content: flex-start; /* alinha tudo à esquerda */
+        overflow-x: hidden; /* scroll horizontal se precisar (nunca vai) */
+        text-overflow: clip;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .nav-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .nav-bar nav {
+        gap: 1rem!important;
+    }
+
+    .nav-bar nav span {
+        width: 110px;
+        overflow: clip;
+    }
+    .nav-bar nav a {
+        font-size: 0.88rem;
+        max-width: 140px; /* corta com ... se necessário */
+    }
+
+    header {
+        background: none;
+        min-height: 50vh;
+    }
+    header .nav-bar{
+        width: 95%;
+        padding: 1rem 1rem !important;
+    }
     header .banner { justify-content: center; text-align: center; }
-    .nav-bar { flex-direction: column; gap: 1rem; padding: 1.5rem; }
     .btn-group { justify-content: center; }
+
+    header .banner .image {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-bar {
+        width: 95%;
+        padding: 0;
+        gap: 1rem;
+        justify-content: flex-start; /* alinha tudo à esquerda */
+        overflow-x: hidden; /* scroll horizontal se precisar (nunca vai) */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .nav-bar .logo { 
+        max-width: 100px !important;
+        padding: 0;
+        flex-shrink: 0;
+    }
+    .nav-bar nav a {
+        font-size: 0.82rem;
+        max-width: 120px;
+    }
+
+
 }
