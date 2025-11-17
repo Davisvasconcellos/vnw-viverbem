@@ -1,66 +1,322 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* ========================================
+   1. ELEMENTOS COMUNS
+   ======================================== */
+   // FONTES GOOGLE
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
+
+
+
+$primary: #1173D4;
+$secondary: #33CC73;
+$gradient: linear-gradient(to right, #4247A2, #52B095);
+$title-gradient-female: linear-gradient(to right, #F9016F8A, #9308859E,#D038AAC0,#851C87);
+$title-gradient: linear-gradient(to right, $primary, $secondary);
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
-    font-family: "Inter", sans-serif;
 }
 
-header {
-    height: 90vh;
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.flex {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url("./img/bannerHeader.png");
-    background-repeat: no-repeat;
-    background-size: contain;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    .box-header {
-        margin-top: 30px;
-        width: 80%;
-        height: 10vh;
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        background: linear-gradient(to right, #4247A2 0%, #52B095 100%);
+.text-center { text-align: center; }
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: transparent;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
 
-        nav {
-            width: 40%;
-            height: 10vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
+.title-male {
 
-            a {
-                color: #fff;
-                font-family: "Roboto", sans-serif;
+    background: $title-gradient;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+
+.title-female{
+
+    background: $title-gradient-female;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+
+/* ========================================
+   2. BOTÕES
+   ======================================== */
+.btn {
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+
+    &-primary {
+        background: $primary;
+        color: white;
+        border: 1.5px solid $primary;
+
+        &:hover {
+            background: white;
+            color: $primary;
+            border: 1.5px solid $primary;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(17, 115, 212, 0.2);
+        }
+    }
+
+    &-secondary {
+        color: white;
+        color: $primary;
+        border: 1.5px solid $primary;
+
+        &:hover {
+            background: $primary;
+            color: white;
+            transform: translateY (-3px);
+            box-shadow: 0 6px 15px rgba(17, 115, 212, 0.2);
+        }
+    }
+}
+
+
+
+
+/* ========================================
+   3. CARDS
+   ======================================== */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 1.8rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 260px;
+    max-width: 320px;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: translateY(-8px);
+    }
+
+    &-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+        border: 4px solid #f0f7ff;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &-age {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        display: inline-block;
+        padding: 0.4rem 1rem;
+        border-radius: 8px;
+        font-size: 20px;
+        margin-bottom: 0.8rem;
+    }
+
+    &-title {
+        font-size: 1.1rem;
+        color: $primary;
+        margin-bottom: 0.8rem;
+        font-weight: 700;
+
+    }
+
+
+    ul {
+        text-align: left;
+        font-size: 0.9rem;
+        color: #444;
+        list-style: none;
+        padding-left: 0.5rem;
+
+        li {
+            position: relative;
+            margin-bottom: 0.4rem;
+
+            &::before {
+                content: "•";
+                color: $secondary;
+                font-weight: bold;
+                margin-right: 0.5rem;
             }
         }
     }
 }
 
-.box-banner {
-    width: 80vw;
-    height: 80vh;
+
+
+.card-vertical{
+    height: 500px;
+    width: 250px;
+}
+
+
+/* ========================================
+   4. NOTIFICAÇÕES (ALERTAS)
+   ======================================== */
+.alert {
+    padding: 1.2rem 1.5rem;
+    border-radius: 16px;
+    margin: 1rem;
+    flex: 1;
+    min-width: 280px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    &-pink { background: #fdf2f8; color: #be185d; }
+    &-blue { background: #ebf8ff; color: #1e40af; }
+    &-green { background: #f0fdf4; color: #166534; }
+    &-yellow { background: #fffbeb; color: #92400e; }
+
+    strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 1.05rem;
+    }
+}
+
+/* ========================================
+   5. HEADER + BANNER
+   ======================================== */
+header {
+    min-height: 90vh;
+    background: url('./img/bannerHeader.png') right/cover no-repeat;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding-top: 2rem;
 
-    .box-titulo {
-        height: 60vh;
+    .nav-bar {
+        width: 85%;
+        max-width: 1200px;
+        background: $gradient;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
 
-        h2 {
-            font-size: 2.7rem;
-            font-weight: bold;
-            background: linear-gradient(to right, #1173D4 0%, #33CC73 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
-            font-weight: bold;
-        
+        .logo {
+            max-width: 140px;
+        }
+
+        nav a {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            margin-left: 2rem;
+            transition: opacity 0.3s;
+
+            &:hover { opacity: 0.8; }
         }
     }
+
+    .banner {
+        width: 85%;
+        max-width: 1200px;
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+
+        .text {
+            flex: 1;
+            min-width: 300px;
+
+            h1 {
+                @extend .title;
+                font-size: 3rem;
+            }
+
+            .btn-group {
+                display: flex;
+                gap: 1rem;
+                margin-top: 1.5rem;
+                flex-wrap: wrap;
+            }
+        }
+
+        .image {
+            flex: 1;
+            min-width: 300px;
+            height: 380px;
+            background: #eee;
+            border-radius: 20px;
+        }
+    }
+}
+
+/* ========================================
+   6. SEÇÕES
+   ======================================== */
+.section {
+    padding: 4rem 0;
+    text-align: center;
+
+    &.light { background: #f8f9fa; }
+    &.pink { background: linear-gradient(to bottom, #fdf7fb, #fde8f5); }
+    &.white { background: white; }
+
+    .cards-wrapper {
+        @extend .flex;
+        margin-top: 2rem;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .title { font-size: 2rem; }
+    header .banner { justify-content: center; text-align: center; }
+    .nav-bar { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+    .btn-group { justify-content: center; }
 }

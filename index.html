@@ -4,27 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <title>Viva Bem</title>
 </head>
 <body>
+
+    <!-- HEADER -->
     <header>
-        <div class="box-header">
-            <img src="./img/LogoVivaBem.png" alt="Logo do site Viva Bem">
+        <div class="nav-bar">
+            <img src="./img/LogoVivaBem.png" alt="Viva Bem" class="logo">
             <nav>
                 <a href="#">Prevenção Masculina</a>
                 <a href="#">Prevenção Feminina</a>
             </nav>
         </div>
-        <section class="box-banner">
-            <div class="box-titulo">
-                <h2>Cuidar da saúde é um ato de amor</h2>
-                <p>Confira os principais exames de prevenção por faixa etária.</p>
-                <div>
-                    <button>Ver Agenda por Idade</button>
-                    <button>Saiba Mais</button>
+
+        <div class="banner">
+            <div class="text">
+                <h1>Cuidar da saúde é um ato de amor</h1>
+                <p class="subtitle">Confira os principais exames de prevenção por faixa etária.</p>
+                <div class="btn-group">
+                    <button class="btn btn-primary">Ver Agenda por Idade</button>
+                    <button class="btn btn-secondary">Saiba Mais</button>
                 </div>
             </div>
-        </section>
+            <div class="image"></div>
+        </div>
     </header>
+
+    <!-- IMPORTÂNCIA -->
+    <section class="section light">
+        <div class="container">
+            <h2 class="title title-male">A Importância dos Exames de Rotina</h2>
+            <p class="subtitle">Os exames preventivos são fundamentais para detectar doenças em estágios iniciais, quando o tratamento é mais eficaz e menos invasivo. Manter uma rotina de check-ups regulares pode salvar vidas e garantir uma melhor qualidade de vida para você e sua família.</p>
+
+            <div class="flex cards-wrapper">
+                <div class="card">
+                    <div class="card-icon"><img src="./img/check.png" alt=""></div>
+                    <h3 class="card-title">Detecção Precoce</h3>
+                    <p>Identifique problemas antes que se tornem graves</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><img src="./img/family.png" alt=""></div>
+                    <h3 class="card-title">Cuidado Familiar</h3>
+                    <p>Proteja toda a família com exames regulares</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><img src="./img/heart.png" alt=""></div>
+                    <h3 class="card-title">Qualidade de Vida</h3>
+                    <p>Viva mais e melhor com prevenção adequada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PREVENÇÃO FEMININA -->
+    <section class="section pink">
+        <div class="container">
+            <h2 class="title title-female">Prevenção Feminina</h2>
+
+            <div class="flex cards-wrapper">
+                <!-- 15 anos -->
+                <div class="card card-vertical">
+                    <div class="card-icon"><img src="./img/vacina15-anos.jpg" alt=""></div>
+                    <div class="card-age">A partir dos 15 anos</div>
+                    <ul>
+                        <li>Vacinação em dia (HPV, tétano, hepatite B, influenza, covid)</li>
+                        <li>Consulta ginecológica inicial (orientação sobre saúde menstrual, contracepção e prevenção de ISTs)</li>
+                    </ul>
+                </div>
+                <!-- 20 anos -->
+                 <div class="card card-vertical">
+                    <div class="card-icon"><img src="./img/vacina20-anos.png" alt=""></div>
+                    <div class="card-age">A partir dos 20 anos</div>
+                    <ul>
+                        <li>Exames de sangue e urina anuais (hemograma, glicose, colesterol, função renal e hepática)</li>
+                        <li>ECheck-up odontológico e oftalmológico</li>
+                        <li>Exame dermatológico (rastreamento de câncer de pele)</li>
+                    </ul>
+                </div>
+                 <!-- 25 anos -->
+                 <div class="card card-vertical">
+                    <div class="card-icon"><img src="./img/25anos.png" alt=""></div>
+                    <div class="card-age">A partir dos 25 anos</div>
+                    <ul>
+                        <li>Papanicolau (preventivo) – a cada 3 anos se não houver alterações</li>
+                        <li>Rastreio do HPV se indicado</li>
+                    </ul>
+                </div>
+                 <!-- 30 anos -->
+                 <div class="card card-vertical">
+                    <div class="card-icon"><img src="./img/30anos.jpg" alt=""></div>
+                    <div class="card-age">A partir dos 30 anos</div>
+                    <ul>
+                        <li>Aferição da pressão arterial e glicemia</li>
+                        <li>Exames de sangue mais completos</li>
+                        <li>Aferição da pressão arterial e glicemia</li>
+                        <li>Exames cardiovasculares iniciais se houver histórico familiar ou fatores de risco</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALERTAS -->
+    <section class="section white">
+        <div class="container">
+            <h2 class="title">Alertas Importantes</h2>
+
+            <div class="flex">
+                <div class="alert alert-pink">
+                    <strong>Autoexame das Mamas</strong>
+                    Realize o autoexame das mamas todo mês...
+                </div>
+                <div class="alert alert-blue">
+                    <strong>Autoexame dos Testículos</strong>
+                    Homens e pessoas com testículos devem...
+                </div>
+                <div class="alert alert-green">
+                    <strong>Vacinas em Dia</strong>
+                    Todos devem manter a carteira de vacinação...
+                </div>
+                <div class="alert alert-yellow">
+                    <strong>Saúde Mental</strong>
+                    Cuidar da mente é tão importante quanto...
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>

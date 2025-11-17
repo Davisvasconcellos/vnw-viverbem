@@ -1,59 +1,308 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@charset "UTF-8";
+/* ========================================
+   1. ELEMENTOS COMUNS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Inter", sans-serif;
 }
 
+body {
+  font-family: "Inter", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.flex, .section .cards-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.title, header .banner .text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: transparent;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.title-male {
+  background: linear-gradient(to right, #1173D4, #33CC73);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.title-female {
+  background: linear-gradient(to right, rgba(249, 1, 111, 0.5411764706), rgba(147, 8, 133, 0.6196078431), rgba(208, 56, 170, 0.7529411765), #851C87);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+/* ========================================
+   2. BOTÕES
+   ======================================== */
+.btn {
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+.btn-primary {
+  background: #1173D4;
+  color: white;
+  border: 1.5px solid #1173D4;
+}
+.btn-primary:hover {
+  background: white;
+  color: #1173D4;
+  border: 1.5px solid #1173D4;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(17, 115, 212, 0.2);
+}
+.btn-secondary {
+  color: white;
+  color: #1173D4;
+  border: 1.5px solid #1173D4;
+}
+.btn-secondary:hover {
+  background: #1173D4;
+  color: white;
+  transform: translateY -3px;
+  box-shadow: 0 6px 15px rgba(17, 115, 212, 0.2);
+}
+
+/* ========================================
+   3. CARDS
+   ======================================== */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  flex: 1;
+  min-width: 260px;
+  max-width: 320px;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-8px);
+}
+.card-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  border: 4px solid #f0f7ff;
+}
+.card-icon img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card-age {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-size: 20px;
+  margin-bottom: 0.8rem;
+}
+.card-title {
+  font-size: 1.1rem;
+  color: #1173D4;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+}
+.card ul {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #444;
+  list-style: none;
+  padding-left: 0.5rem;
+}
+.card ul li {
+  position: relative;
+  margin-bottom: 0.4rem;
+}
+.card ul li::before {
+  content: "•";
+  color: #33CC73;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.card-vertical {
+  height: 500px;
+  width: 250px;
+}
+
+/* ========================================
+   4. NOTIFICAÇÕES (ALERTAS)
+   ======================================== */
+.alert {
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  margin: 1rem;
+  flex: 1;
+  min-width: 280px;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.alert-pink {
+  background: #fdf2f8;
+  color: #be185d;
+}
+.alert-blue {
+  background: #ebf8ff;
+  color: #1e40af;
+}
+.alert-green {
+  background: #f0fdf4;
+  color: #166534;
+}
+.alert-yellow {
+  background: #fffbeb;
+  color: #92400e;
+}
+.alert strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+/* ========================================
+   5. HEADER + BANNER
+   ======================================== */
 header {
-  height: 90vh;
+  min-height: 90vh;
+  background: url("./img/bannerHeader.png") right/cover no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url("./img/bannerHeader.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+  padding-top: 2rem;
 }
-header .box-header {
-  margin-top: 30px;
-  width: 80%;
-  height: 10vh;
+header .nav-bar {
+  width: 85%;
+  max-width: 1200px;
+  background: linear-gradient(to right, #4247A2, #52B095);
+  padding: 1rem 2rem;
   border-radius: 50px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
-  background: linear-gradient(to right, #4247A2 0%, #52B095 100%);
+  margin-bottom: 3rem;
 }
-header .box-header nav {
-  width: 40%;
-  height: 10vh;
+header .nav-bar .logo {
+  max-width: 140px;
+}
+header .nav-bar nav a {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  margin-left: 2rem;
+  transition: opacity 0.3s;
+}
+header .nav-bar nav a:hover {
+  opacity: 0.8;
+}
+header .banner {
+  width: 85%;
+  max-width: 1200px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
-header .box-header nav a {
-  color: #fff;
-  font-family: "Roboto", sans-serif;
+header .banner .text {
+  flex: 1;
+  min-width: 300px;
+}
+header .banner .text h1 {
+  font-size: 3rem;
+}
+header .banner .text .btn-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+header .banner .image {
+  flex: 1;
+  min-width: 300px;
+  height: 380px;
+  background: #eee;
+  border-radius: 20px;
 }
 
-.box-banner {
-  width: 80vw;
-  height: 80vh;
-  display: flex;
-  align-items: center;
+/* ========================================
+   6. SEÇÕES
+   ======================================== */
+.section {
+  padding: 4rem 0;
+  text-align: center;
 }
-.box-banner .box-titulo {
-  height: 60vh;
+.section.light {
+  background: #f8f9fa;
 }
-.box-banner .box-titulo h2 {
-  font-size: 2.7rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #1173D4 0%, #33CC73 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  font-weight: bold;
+.section.pink {
+  background: linear-gradient(to bottom, #fdf7fb, #fde8f5);
+}
+.section.white {
+  background: white;
+}
+.section .cards-wrapper {
+  margin-top: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .title, header .banner .text h1 {
+    font-size: 2rem;
+  }
+  header .banner {
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-bar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .btn-group {
+    justify-content: center;
+  }
 }/*# sourceMappingURL=style.css.map */
